@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Style - Tienda de Ropa Urbana</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">👕 Urban <span>Style</span></div>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#checkout">Finalizar Compra</a>
+  </nav>
+  <button onclick="verCarrito()" class="btn-carrito">🛒 Carrito (<span id="contadorCarrito">0</span>)</button>
+</header>
+
+<section id="inicio" class="hero">
+  <div class="hero-texto">
+    <h1>Vístete con estilo urbano</h1>
+    <p>Colección nueva 2026. Ropa cómoda, moderna y con actitud.</p>
+    <p class="promo">🔥 PROMO: Usa el cupón <b>URBAN10</b> y obtén 10% de descuento</p>
+    <a href="#catalogo" class="btn">Ver catálogo</a>
+  </div>
+</section>
+
+<section class="seccion">
+  <h2>Colecciones Destacadas</h2>
+  <div class="grid-colecciones">
+    <div class="coleccion" onclick="filtrarDesdeColeccion('Camisetas')"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600"><h3>Camisetas</h3><p>Desde $45.000</p></div>
+    <div class="coleccion" onclick="filtrarDesdeColeccion('Jeans')"><img src="https://images.unsplash.com/photo-1542272604-787c3835535d?w=600"><h3>Jeans</h3><p>Desde $89.000</p></div>
+    <div class="coleccion" onclick="filtrarDesdeColeccion('Sudaderas')"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600"><h3>Sudaderas</h3><p>Desde $95.000</p></div>
+  </div>
+  <p class="promo2">🚚 Envíos a todo Canalete, Córdoba y Colombia | 💳 Pago contra entrega (simulado)</p>
+</section>
+
+<section id="catalogo" class="seccion catalogo">
+  <h2>Catálogo - 12 Productos</h2>
+  <div class="filtros">
+    <select id="filtroCategoria">
+      <option value="todos">Todas las categorías</option>
+      <option value="Camisetas">Camisetas</option>
+      <option value="Jeans">Jeans</option>
+      <option value="Sudaderas">Sudaderas</option>
+      <option value="Chaquetas">Chaquetas</option>
+    </select>
+    <select id="filtroTalla">
+      <option value="todos">Todas las tallas</option>
+      <option value="S">Talla S</option>
+      <option value="M">Talla M</option>
+      <option value="L">Talla L</option>
+      <option value="XL">Talla XL</option>
+    </select>
+    <select id="ordenPrecio">
+      <option value="normal">Ordenar por precio</option>
+      <option value="menor">Menor a mayor</option>
+      <option value="mayor">Mayor a menor</option>
+    </select>
+  </div>
+  <div id="contenedorProductos" class="grid-productos"></div>
+</section>
+
+<section id="carrito" class="seccion carrito oculto">
+  <h2>🛒 Tu Carrito</h2>
+  <div id="listaCarrito"></div>
+  <div class="cupon-box">
+    <input type="text" id="codigoCupon" placeholder="Código de descuento Ej: URBAN10">
+    <button onclick="aplicarCupon()" class="btn-secundario">Aplicar cupón</button>
+    <p id="mensajeCupon"></p>
+  </div>
+  <div id="totales" class="totales"></div>
+  <button onclick="irCheckout()" class="btn">Finalizar compra →</button>
+  <button onclick="cerrarCarrito()" class="btn-secundario">Seguir comprando</button>
+</section>
+
+<section id="checkout" class="seccion checkout">
+  <h2>Finalización de Compra</h2>
+  <p>Completa tus datos de envío. Compra simulada, sin pagos reales.</p>
+  <div class="checkout-contenido">
+    <form id="formEnvio">
+      <input type="text" id="nombreEnvio" placeholder="Nombre completo" required>
+      <input type="tel" id="telefonoEnvio" placeholder="Celular Ej: 3146039495" required>
+      <input type="text" id="direccionEnvio" placeholder="Dirección Ej: Canalete, Córdoba" required>
+      <select id="metodoPago" required>
+        <option value="">Método de pago (simulado)</option>
+        <option value="Contra entrega">Pago contra entrega</option>
+        <option value="Nequi">Nequi</option>
+        <option value="Transferencia">Transferencia</option>
+      </select>
+      <button type="submit" class="btn">Confirmar pedido</button>
+    </form>
+    <div>
+      <h3>Resumen del pedido</h3>
+      <div id="resumenPedido" class="resumen"></div>
+    </div>
+  </div>
+  <div id="confirmacionPedido" class="confirmacion oculto"></div>
+</section>
+
+<footer>
+  <p>Urban Style © 2026 - Canalete, Córdoba | WhatsApp: 3146039495</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
